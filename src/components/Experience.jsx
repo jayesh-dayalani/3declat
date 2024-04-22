@@ -14,6 +14,7 @@ import { Color } from "three";
 import { degToRad, lerp } from "three/src/math/MathUtils";
 import { Camping } from "./Camping";
 import { currentPageAtom } from "./UI";
+import { Eclat } from "./Eclat";
 
 const bloomColor = new Color("#fff");
 bloomColor.multiplyScalar(1.5);
@@ -79,7 +80,7 @@ export const Experience = () => {
         rotation-y={degToRad(30)}
         anchorY={"bottom"}
       >
-        MY LITTLE{"\n"}CAMPING
+        GAJORA{"\n"}eCLAT
         <meshBasicMaterial
           color={bloomColor}
           toneMapped={false}
@@ -89,18 +90,20 @@ export const Experience = () => {
             <color attach="background" args={["#fff"]} />
             <Environment preset="sunset" />
             <Float floatIntensity={4} rotationIntensity={5}>
-              <Camping
+              {/* <Camping
                 scale={1.6}
                 rotation-y={-degToRad(25)}
                 rotation-x={degToRad(40)}
                 position-y={-0.5}
-              />
+              /> */}
+              <Eclat/>
             </Float>
           </RenderTexture>
         </meshBasicMaterial>
       </Text>
-      <group rotation-y={degToRad(-25)} position-x={3}>
-        <Camping scale={0.6} html />
+      <group rotation-y={degToRad(-25)} position-x={2} position-y={-0.5}>
+        {/* <Camping scale={0.6} html /> */}
+        <Eclat scale={0.5} html />
         <mesh ref={meshFitCameraStore} visible={false}>
           <boxGeometry args={[2, 1, 2]} />
           <meshBasicMaterial color="red" transparent opacity={0.5} />
